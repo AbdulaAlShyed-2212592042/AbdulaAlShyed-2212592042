@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+        }
+        .search-form {
+            margin-bottom: 20px;
+        }
+        .search-form input[type="text"] {
+            width: calc(100% - 100px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .search-form input[type="submit"] {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .patient-details {
+            margin-top: 20px;
+        }
+        .prescription-form {
+            margin-top: 20px;
+        }
+        .prescription-form textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+        }
+        .prescription-form input[type="submit"] {
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .logout-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .logout-button:hover {
+            background: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Doctor Dashboard</h1>
+        <form class="search-form" action="patient.php" method="POST">
+            <input type="text" name="patient_id" placeholder="Enter Patient ID" required>
+            <input type="submit" value="Search">
+        </form>
+        
+        <div class="patient-details">
+            <?php 
+            session_start();
+            // Check if patient session data is available
+            if (isset($_SESSION['patient_id'])): 
+                // Use the session variable set in patient.php
+                $patient_id = $_SESSION['patient_id'];
+                $age = $_SESSION['Age'];
+                $systolicBP = $_SESSION['SystolicBP'];
+                $diastolicBP = $_SESSION['DiastolicBP'];
+                $bs = $_SESSION['BS'];
+                $bodyTemp = $_SESSION['BodyTemp'];
+                $heartRate = $_SESSION['HeartRate'];
+                $riskLevel = $_SESSION['RiskLevel'];
+            ?>
+                <h2>Patient Details</h2>
+                <div id="patient-info">
+                    <p><strong>Patient ID:</strong> <?php echo htmlspecialchars($patient_id); ?></p>
+                    <p><strong>Age:</strong> <?php echo htmlspecialchars($age); ?></p>
+                    <p><strong>Systolic BP:</strong> <?php echo htmlspecialchars($systolicBP); ?></p>
+                    <p><strong>Diastolic BP:</strong> <?php echo htmlspecialchars($diastolicBP); ?></p>
+                    <p><strong>Blood Sugar (BS):</strong> <?php echo htmlspecialchars($bs); ?></p>
+                    <p><strong>Body Temperature:</strong> <?php echo htmlspecialchars($bodyTemp); ?></p>
+                    <p><strong>Heart Rate:</strong> <?php echo htmlspecialchars($heartRate); ?></p>
+                    <p><strong>Risk Level:</strong> <?php echo htmlspecialchars($riskLevel); ?></p>
+                </div>
+                <form class="prescription-form" action="prescribe.php" method="POST">
+                    <input type="hidden" name="patient_id" value="<?php echo htmlspecialchars($patient_id); ?>">
+                    <textarea name="prescription" placeholder="Write prescription here..." required></textarea>
+                    <input type="submit" value="Send Prescription">
+                </form>
+            <?php else: ?>
+                <p><?php echo isset($_GET['msg']) ? htmlspecialchars($_GET['msg']) : "No patient details available."; ?></p>
+            <?php endif; ?>
+        </div>
+        
+        <form action="logout.php" method="post">
+            <button type="submit" class="logout-button">Logout</button>
+        </form>
+    </div>
+</body>
+</html>

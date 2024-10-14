@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Assistant Registration</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('background.jpg'); /* Path to your background image */
+            background-size: cover; /* Cover the entire page */
+            background-position: center; /* Center the image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333; /* Darker text for better readability */
+        }
+        .register-container {
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px; /* Max width for the container */
+            width: 100%; /* Responsive width */
+            text-align: center; /* Center-align text */
+        }
+        .register-container h2 {
+            margin-bottom: 20px;
+            color: #5cb85c; /* Green color for header */
+            font-size: 24px; /* Larger font size */
+        }
+        .register-container input[type="text"],
+        .register-container input[type="password"] {
+            width: calc(100% - 20px); /* Account for padding */
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd; /* Lighter border color */
+            border-radius: 6px;
+            font-size: 16px; /* Slightly larger text */
+        }
+        .register-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c; /* Green background */
+            border: none;
+            color: white;
+            border-radius: 6px;
+            font-size: 16px; /* Consistent font size */
+            cursor: pointer;
+            transition: background-color 0.3s; /* Smooth transition */
+        }
+        .register-container button:hover {
+            background-color: #4cae4c; /* Darker green on hover */
+        }
+        .register-container p {
+            margin-top: 20px;
+            font-size: 14px; /* Smaller text for links */
+        }
+        .register-container a {
+            color: #5cb85c; /* Link color */
+            text-decoration: none; /* No underline */
+            transition: text-decoration 0.3s; /* Smooth transition */
+        }
+        .register-container a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="register-container">
+        <h2>Lab Assistant Registration</h2>
+        <form action="lab_assistant_register.php" method="POST">
+            <input type="text" name="id" placeholder="ID" required>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="text" name="specialization" placeholder="Specialization" required>
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="lab_assistant_login.html">Login here</a></p>
+		<p>Change role? <a href="Maternal Mortality.html">Change user</a></p>
+    </div>
+
+</body>
+</html>

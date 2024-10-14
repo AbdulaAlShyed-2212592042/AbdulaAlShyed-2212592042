@@ -1,0 +1,86 @@
+<?php
+// Start session
+session_start();
+
+// Check if patient data is available
+if (!isset($_SESSION['patient_id'])) {
+    // If not logged in, redirect back to login
+    header("Location: login.html");
+    exit();
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .patient-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .patient-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .patient-details p {
+            font-size: 18px;
+            color: #555;
+            margin: 0;
+        }
+        .patient-details p span {
+            font-weight: bold;
+            color: #333;
+        }
+        .logout-btn {
+            display: block;
+            margin: 30px auto 0;
+            padding: 10px 20px;
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .logout-btn:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+    <div class="patient-container">
+        <h2>Patient Information</h2>
+        <div class="patient-details">
+            <p><span>Patient ID:</span> <?php echo $_SESSION['patient_id']; ?></p>
+            <p><span>Age:</span> <?php echo $_SESSION['Age']; ?></p>
+            <p><span>Systolic Blood Pressure:</span> <?php echo $_SESSION['SystolicBP']; ?></p>
+            <p><span>Diastolic Blood Pressure:</span> <?php echo $_SESSION['DiastolicBP']; ?></p>
+            <p><span>Blood Sugar:</span> <?php echo $_SESSION['BS']; ?></p>
+            <p><span>Body Temperature:</span> <?php echo $_SESSION['BodyTemp']; ?></p>
+            <p><span>Heart Rate:</span> <?php echo $_SESSION['HeartRate']; ?></p>
+            <p><span>Risk Level:</span> <?php echo $_SESSION['RiskLevel']; ?></p>
+        </div>
+        <a href="logout.php" class="logout-btn">Logout</a>
+    </div>
+</body>
+</html>

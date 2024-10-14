@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maternal Mortality Checking System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #5cb85c;
+            font-size: 28px;
+        }
+        label {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #6c757d;
+        }
+        select {
+            width: 200px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #4cae4c;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Maternal Mortality Checking System</h1>
+    <label for="userRole">Select Your Role:</label>
+    <select id="userRole">
+        <option value="" disabled selected>Select Role</option>
+        <option value="patient">Patient</option>
+        <option value="doctor">Doctor</option>
+        <option value="lab_assistant">Lab Assistant</option>
+    </select>
+    <br>
+    <button onclick="redirectToLogin()">Submit</button>
+</div>
+
+<script>
+    function redirectToLogin() {
+        const userRole = document.getElementById('userRole').value;
+        if (userRole === 'patient') {
+            window.location.href = 'login.html';
+        } else if (userRole === 'doctor') {
+            window.location.href = 'doctor_login.html';
+        } else if (userRole === 'lab_assistant') {
+            window.location.href = 'lab_assistant_login.html';
+        } else {
+            alert('Please select a role!');
+        }
+    }
+</script>
+
+</body>
+</html>

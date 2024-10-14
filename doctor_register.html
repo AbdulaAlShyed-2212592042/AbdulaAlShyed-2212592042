@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Registration</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+        .register-form {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #5cb85c;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        label {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 5px;
+            display: block;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            border-color: #5cb85c;
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #5cb85c;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background: #4cae4c;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+    <div class="register-form">
+        <h1>Doctor Registration</h1>
+        <form action="doctor_register.php" method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <label for="doctor_id">Doctor ID</label>
+                <input type="text" id="doctor_id" name="doctor_id" placeholder="Doctor ID" required>
+            </div>
+            <div class="form-group">
+                <label for="degree_name">Degree Name</label>
+                <input type="text" id="degree_name" name="degree_name" placeholder="Degree Name" required>
+            </div>
+            <div class="form-group">
+                <label for="college_name">College Name</label>
+                <input type="text" id="college_name" name="college_name" placeholder="College Name" required>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="doctor_login.html">Login here</a></p>
+		<p>Change role? <a href="Maternal Mortality.html">Change user</a></p>
+    </div>
+</body>
+</html>
